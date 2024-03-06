@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>State List</h2>
+  <ul>
+    {% for obj in state_list %}
+    <div>
+      <p style="width: 20%;">
+        <a href="{% url 'state_detail' pk=obj.pk %}">{{ obj.name }}</a>
+      </p>
+      <p style="width: 80%;">
+        <a href="{% url 'state_delete' pk=obj.pk %}"><button>Delete</button></a> <a href="{% url 'state_update' pk=obj.pk %}"><button>Update</button></a></li>
+      </p>
+    </div>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'state_create' %}"><button>CREATE</button></a>
+{% endblock %}
